@@ -40,8 +40,12 @@ export function calculateShortestWidthOfPolygon(
   if (sides < 3) {
     throw new Error('A polygon must have at least 3 sides.')
   }
-  const height = radius * (2 * Math.sin(Math.PI / sides))
-  return height
+
+  if (sides % 2 === 0) {
+    return radius * (2 * Math.cos(Math.PI / sides))
+  } else {
+    return radius * (1 + Math.cos(Math.PI / sides))
+  }
 }
 
 export function calculateIncircleRadius(
@@ -53,4 +57,25 @@ export function calculateIncircleRadius(
   }
   const radius = outerRadius * Math.cos(Math.PI / sides)
   return radius
+}
+
+export function calculatePolygonSideLength(
+  sides: number,
+  radius: number,
+) {
+  if (sides < 3) {
+    throw new Error('A polygon must have at least 3 sides.')
+  }
+  const sideLength = 2 * radius * Math.sin(Math.PI / sides)
+  return sideLength
+}
+
+export function calculateCircumradiusFromIncircleRadius(
+  sides: number,
+  radius: number,
+) {
+  if (sides < 3) {
+    throw new Error('A polygon must have at least 3 sides.')
+  }
+  return radius / Math.cos(Math.PI / sides)
 }

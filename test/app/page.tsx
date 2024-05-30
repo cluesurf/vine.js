@@ -1,11 +1,15 @@
 'use client'
 
+import Atom from '~/components/Atom'
 import Box from '~/components/Box'
 import Particle from '~/components/Particle'
 import Polygon from '~/components/Polygon'
 import SVG from '~/components/SVG'
 import colors from '~/utils/colors'
-import { calculateIncircleRadius } from '~/utils/geometry'
+import {
+  calculateIncircleRadius,
+  calculateShortestWidthOfPolygon,
+} from '~/utils/geometry'
 
 export default function Home() {
   return (
@@ -36,33 +40,10 @@ export default function Home() {
         />
       </SVG>
       <SVG width={128}>
-        <g transform="translate(0, 0)">
-          <Polygon
-            fill={colors.gray300}
-            stroke={colors.gray300}
-            sides={5}
-            width={128}
-            height={128}
-            strokeWidth={8}
-          />
-        </g>
-        <g transform={`translate(${16}, ${20})`}>
-          <Polygon
-            sides={5}
-            width={calculateIncircleRadius(5, 64) * 2}
-            height={calculateIncircleRadius(5, 64) * 2}
-            rotation={36}
-            strokeWidth={8}
-          />
-        </g>
-        {/* <g transform="translate(23, 23)">
-          <Polygon
-            sides={4}
-            width={64}
-            height={64}
-            rotation={45}
-          />
-        </g> */}
+        <Atom
+          width={32}
+          height={32}
+        />
       </SVG>
     </main>
   )

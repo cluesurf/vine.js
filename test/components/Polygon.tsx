@@ -36,10 +36,10 @@ function computePolygonPoints({
   strokeWidth: number
   rotation?: number
 }) {
-  const centerX = width / 2
-  const centerY = height / 2
-  const radiusX = width / 2
-  const radiusY = height / 2
+  const centerX = width / 2 + strokeWidth / 2
+  const centerY = height / 2 + strokeWidth / 2
+  const radiusX = width / 2 - strokeWidth / 2
+  const radiusY = height / 2 - strokeWidth / 2
   const offsetX = strokeWidth / 2
   const offsetY = strokeWidth / 2
 

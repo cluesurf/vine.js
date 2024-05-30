@@ -1,7 +1,10 @@
 import { findNextSize } from '~/utils/numbers'
 import Polygon from './Polygon'
 import colors from '~/utils/colors'
-import { calculatePolygonHeight } from '~/utils/geometry'
+import {
+  calculatePolygonHeight,
+  calculateShortestWidthOfPolygon,
+} from '~/utils/geometry'
 
 export type ParticleInput = ParticleData & {
   style?: 'dark' | 'light'
@@ -91,7 +94,7 @@ function ParticlePair({ size, a, b, rotation = 0 }: ParticlePairInput) {
   const fontSize = FONT_SIZE[s]
   const strokeWidth = 8
   const textOffset = TEXT_OFFSET[s]
-  const particleHeight = calculatePolygonHeight(3, size / 2)
+  const particleHeight = calculateShortestWidthOfPolygon(3, size / 2)
   return (
     <g>
       <g className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-500 [&_polygon]:hover:stroke-violet-500">
@@ -117,7 +120,7 @@ function ParticlePair({ size, a, b, rotation = 0 }: ParticlePairInput) {
       </g>
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-400 [&_polygon]:hover:stroke-violet-400"
-        transform={`translate(0, ${particleHeight + strokeWidth / 2})`}
+        transform={`translate(0, ${particleHeight - strokeWidth / 4})`}
       >
         <Polygon
           width={s}
@@ -171,7 +174,7 @@ function ParticleSix({
   const fontSize = FONT_SIZE[s]
   const strokeWidth = 8
   const textOffset = TEXT_OFFSET[s]
-  const particleHeight = calculatePolygonHeight(3, size / 2)
+  const particleHeight = calculateShortestWidthOfPolygon(3, s / 2)
   const adjust = particleHeight
   return (
     <g>
@@ -179,7 +182,7 @@ function ParticleSix({
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-400 [&_polygon]:hover:stroke-violet-400"
         transform={`translate(${
-          adjust / 2 + adjust - particleHeight / 3
+          strokeWidth / 4 + adjust / 2 + adjust - particleHeight / 2
         }, 0)`}
       >
         <Polygon
@@ -205,9 +208,9 @@ function ParticleSix({
       </g>
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-400 [&_polygon]:hover:stroke-violet-400"
-        transform={`translate(${
-          adjust / 2 + strokeWidth / 2
-        }, ${adjust})`}
+        transform={`translate(${adjust / 2}, ${
+          adjust - strokeWidth / 4
+        })`}
       >
         <Polygon
           width={s}
@@ -257,7 +260,7 @@ function ParticleSix({
       </g>
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-500 [&_polygon]:hover:stroke-violet-500"
-        transform={`translate(${adjust / 2 + strokeWidth / 2}, 0)`}
+        transform={`translate(${strokeWidth / 4 + adjust / 2}, 0)`}
       >
         <Polygon
           width={s}
@@ -270,8 +273,8 @@ function ParticleSix({
         />
         <text
           fill={TEXT_COLOR[a.style ?? 'dark']}
-          x={size / 2}
-          y={textOffset + size / 3}
+          x={-strokeWidth / 2 + s / 2}
+          y={textOffset + s / 3}
           fontSize={fontSize}
           textAnchor="middle"
           dominantBaseline="middle"
@@ -283,8 +286,8 @@ function ParticleSix({
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-500 [&_polygon]:hover:stroke-violet-500"
         transform={`translate(${
-          adjust / 2 + adjust - particleHeight / 3
-        }, ${adjust})`}
+          strokeWidth / 4 + adjust / 2 + adjust - particleHeight / 2
+        }, ${-strokeWidth / 4 + adjust})`}
       >
         <Polygon
           width={s}
@@ -297,8 +300,8 @@ function ParticleSix({
         />
         <text
           fill={TEXT_COLOR[b.style ?? 'dark']}
-          x={size / 2}
-          y={textOffset + size / 3}
+          x={-strokeWidth / 2 + s / 2}
+          y={textOffset + s / 3}
           fontSize={fontSize}
           textAnchor="middle"
           dominantBaseline="middle"
@@ -309,7 +312,7 @@ function ParticleSix({
       </g>
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-500 [&_polygon]:hover:stroke-violet-500"
-        transform={`translate(${0}, ${adjust})`}
+        transform={`translate(${0}, ${-strokeWidth / 4 + adjust})`}
       >
         <Polygon
           width={s}
@@ -322,8 +325,8 @@ function ParticleSix({
         />
         <text
           fill={TEXT_COLOR[b.style ?? 'dark']}
-          x={size / 2}
-          y={textOffset + size / 3}
+          x={-strokeWidth / 2 + s / 2}
+          y={textOffset + s / 3}
           fontSize={fontSize}
           textAnchor="middle"
           dominantBaseline="middle"
@@ -334,9 +337,9 @@ function ParticleSix({
       </g>
       <g
         className="[&_polygon]:hover:cursor-pointer [&_text]:hover:cursor-pointer [&_polygon]:hover:fill-violet-500 [&_polygon]:hover:stroke-violet-500"
-        transform={`translate(${size - strokeWidth / 2 - 16}, ${
-          size - strokeWidth / 2 - 24
-        })`}
+        transform={`translate(${
+          strokeWidth / 2 + s / 2 + strokeWidth / 4
+        }, ${strokeWidth / 2 - 16 + adjust})`}
       >
         <Polygon
           width={32}
