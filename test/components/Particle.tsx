@@ -64,8 +64,8 @@ export default function Particle({
       />
       <text
         fill={textColor}
-        x={size / 2}
-        y={textOffset + size / 2}
+        x={size / 2 - 8 / 2}
+        y={textOffset + size / 2 - 8 / 2}
         fontSize={fontSize}
         textAnchor="middle"
         dominantBaseline="middle"
@@ -108,8 +108,8 @@ function ParticlePair({ size, a, b, rotation = 0 }: ParticlePairInput) {
         />
         <text
           fill={TEXT_COLOR[a.style ?? 'dark']}
-          x={size / 2}
-          y={textOffset + size / 2}
+          x={size / 2 - 8 / 2}
+          y={textOffset + size / 2 - 8 / 2}
           fontSize={fontSize}
           textAnchor="middle"
           dominantBaseline="middle"
@@ -133,8 +133,8 @@ function ParticlePair({ size, a, b, rotation = 0 }: ParticlePairInput) {
         />
         <text
           fill={TEXT_COLOR[b.style ?? 'light']}
-          x={size / 2}
-          y={textOffset + size / 3}
+          x={size / 2 - 8 / 2}
+          y={textOffset + size / 3 - 8 / 2}
           fontSize={fontSize}
           textAnchor="middle"
           dominantBaseline="middle"
