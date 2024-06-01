@@ -73,7 +73,7 @@ const SVG: React.FC<SVGInput> = ({
       <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${actualWidth ?? 0} ${actualHeight ?? 0}`}
+        viewBox={`0 0 ${svgBBox?.width ?? 0} ${svgBBox?.height ?? 0}`}
       >
         <g
           // transform={`translate=${}`}

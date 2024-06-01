@@ -73,6 +73,13 @@ export default function Home() {
         <SVG>
           <Atom
             size={32}
+            electrons={118}
+            label="Xy"
+          />
+        </SVG>
+        <SVG>
+          <Atom
+            size={32}
             electrons={79}
             label="Au"
           />
