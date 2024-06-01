@@ -6,6 +6,7 @@ import {
   useState,
 } from 'react'
 import {
+  calculatePolygonDotPosition,
   calculatePolygonHeight,
   calculateShortestWidthOfPolygon,
   distanceBetweenVertices,
@@ -46,29 +47,25 @@ function computePolygonPoints({
   const rotationRad = (rotation * Math.PI) / 180
 
   const points = Array.from({ length: sides }, (_, i) => {
-    const angle = (i * 2 * Math.PI) / sides + ANGLE
-    const x = centerX + radiusX * Math.cos(angle)
-    const y = centerY + radiusY * Math.sin(angle)
-
-    // Apply rotation around the center
-    const rotatedX =
-      centerX +
-      (x - centerX) * Math.cos(rotationRad) -
-      (y - centerY) * Math.sin(rotationRad)
-    const rotatedY =
-      centerY +
-      (x - centerX) * Math.sin(rotationRad) +
-      (y - centerY) * Math.cos(rotationRad)
-
-    return { x: rotatedX, y: rotatedY }
+    return calculatePolygonDotPosition({
+      rotation,
+      polygonRadius: radiusX,
+      polygonSideCount: sides,
+      polygonEdgeNumber: i + 1,
+      polygonEdgePositionRatio: 0,
+      gap: 0,
+      dotRadius: 0,
+    })
   })
+
+  // return points
 
   const minX = Math.min(...points.map(p => p.x))
   const minY = Math.min(...points.map(p => p.y))
 
   const adjustedPoints = points.map(p => ({
-    x: offsetX + p.x - minX,
-    y: offsetY + p.y - minY,
+    x: offsetX + p.x,
+    y: offsetY + p.y,
   }))
 
   return adjustedPoints

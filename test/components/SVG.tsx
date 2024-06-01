@@ -17,6 +17,7 @@ const SVG: React.FC<SVGInput> = ({
   const [aspectRatio, setAspectRatio] = useState<number>(1)
   const ref = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGGElement>(null)
+  const [svgBBox, setSvgBBox] = useState<DOMRect>()
 
   const { width: divWidth = 0, height: divHeight = 0 } =
     useResizeObserver({
@@ -35,6 +36,8 @@ const SVG: React.FC<SVGInput> = ({
         setHeight((width as number) / aspectRatio)
       } else if (typeW === 'string') {
         setHeight(divWidth / aspectRatio)
+      } else if (svgBBox) {
+        setHeight(svgBBox.height)
       }
     } else {
       setHeight(height)
@@ -45,17 +48,19 @@ const SVG: React.FC<SVGInput> = ({
         setWidth((height as number) * aspectRatio)
       } else if (typeH === 'string') {
         setWidth(divHeight * aspectRatio)
+      } else if (svgBBox) {
+        setWidth(svgBBox.width)
       }
     } else {
       setWidth(width)
     }
-  }, [width, height, aspectRatio, divWidth, divHeight])
+  }, [width, height, aspectRatio, divWidth, divHeight, svgBBox])
 
   useLayoutEffect(() => {
     if (svgRef.current) {
       const bbox = svgRef.current.getBBox()
       setAspectRatio(bbox.width / bbox.height)
-      console.log(bbox)
+      setSvgBBox(bbox)
     }
   }, [svgRef])
 
