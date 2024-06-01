@@ -54,6 +54,10 @@ In summary:
 - **6th Shell:** 18 electrons
 - **7th Shell:** 8 electrons
 
+## Periodic Table
+
+- https://perfectperiodictable.com/
+
 ## Installation
 
 ```
