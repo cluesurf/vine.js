@@ -59,12 +59,12 @@ export const LARGE_ATOM: Record<string, boolean> = {
 // aluminum = gray
 
 const Molecule2D: React.FC<Molecule2DInput> = ({
-  primaryBondWidth = 10,
+  primaryBondWidth = 6,
   secondaryBondWidth = 3,
-  primaryRadius = 16,
+  primaryRadius = 12,
   secondaryRadius = 3,
   scale = 40,
-  hydrogenScale = 12,
+  hydrogenScale = 10,
   fontSize = 12,
   textOffset = 4,
   molfile,
@@ -178,8 +178,8 @@ const Molecule2D: React.FC<Molecule2DInput> = ({
     }
 
     if (bond.number === 2) {
-      const a = shiftLine(startX, startY, endX, endY, 3.5)
-      const b = shiftLine(startX, startY, endX, endY, -3.5)
+      const a = shiftLine(startX, startY, endX, endY, 3)
+      const b = shiftLine(startX, startY, endX, endY, -3)
       elements.push(
         <line
           key={`k-${key++}`}
@@ -188,7 +188,7 @@ const Molecule2D: React.FC<Molecule2DInput> = ({
           x2={a.x2}
           y2={a.y2}
           stroke={isHydrogenBond ? COLORS.gray300 : COLORS.gray500}
-          strokeWidth={w / 2}
+          strokeWidth={w * 0.8}
           strokeLinecap="round"
         />,
         <line
@@ -198,7 +198,7 @@ const Molecule2D: React.FC<Molecule2DInput> = ({
           x2={b.x2}
           y2={b.y2}
           stroke={isHydrogenBond ? COLORS.gray300 : COLORS.gray500}
-          strokeWidth={w / 2}
+          strokeWidth={w * 0.8}
           strokeLinecap="round"
         />,
       )

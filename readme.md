@@ -17,10 +17,37 @@
 
 ## Goals
 
-- atoms
-- molecules
-- cells
-- organisms
+- particles: triangle
+- atoms: pentagon
+- molecules: square
+- cells: hexagon
+- organisms: circle
+
+- small molecule (small circle)
+- protein (large vertical rectangle)
+- mitochondrion (larger horizontal rectangle)
+- dna (diamond chain of 4)
+- rna (circle chain)
+- gene (diamond)
+- virus (heptagon)
+- cell (hexagon)
+- bacteria (long thin rectangle)
+- phospholipid (head circle with tail rectangle)
+- enzyme (square with chunk taken out, like pacman)
+- receptor (Y symbol)
+- membrane (parallel lines when up close, one long rectangle when
+  further out)
+- ribosome (hourglass 8)
+- cytoskeleton (4 long thin lines horizontal)
+- Golgi Apparatus
+- Lysosome (bordered circle)
+- nucleus (circle with dot inside)
+- Chloroplast (3 stacked rounded rectangles)
+- Plasmid (ring)
+
+## Math
+
+- centered polygonal numbers
 
 ## Atoms
 
@@ -57,6 +84,12 @@ In summary:
 ## Periodic Table
 
 - https://perfectperiodictable.com/
+
+## Datasets
+
+- Gene Data: https://ftp.ncbi.nlm.nih.gov/genbank/README.genbank
+- Signaling Pathway Data: https://reactome.org/download-data
+- Protein Interations Data: https://string-db.org/
 
 ## Installation
 

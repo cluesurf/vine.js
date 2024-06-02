@@ -52,8 +52,6 @@ const colors = {
   gray950: h([3, 7, 18]),
 }
 
-console.log(colors)
-
 export default colors
 
 function h(rgb: [number, number, number]) {
