@@ -1,0 +1,185 @@
+
+load ~/code/property
+  find flexibility
+  find left-alternativity
+  find right-alternativity
+
+property set-flexibility
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, c, in set
+    assert flexibility
+      head type, have type
+      have a
+      have b
+      have c
+      have operation
+
+property set-left-alternativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, in set
+    assert left-alternativity
+      head type, have type
+      have a
+      have b
+      have operation
+
+property set-right-alternativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, in set
+    assert right-alternativity
+      head type, have type
+      have a
+      have b
+      have operation
+
+property set-anticommutativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, in set
+    assert anticommutativity
+      head type, have type
+      have a
+      have b
+      have operation
+
+property set-symmetry
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, in set
+    assert symmetry
+      head type, have type
+      have a
+      have b
+      have operation
+
+property set-right-distributivity
+  head type
+
+  take set, like set, have type
+  take add, like binary-function, have type
+  take mul, like binary-function, have type
+
+  all a, b, c, in set
+    assert right-distributivity
+      head type, have type
+      have a
+      have b
+      have c
+      have add
+      have mul
+
+property set-left-distributivity
+  head type
+
+  take set, like set, have type
+  take add, like binary-function, have type
+  take mul, like binary-function, have type
+
+  all a, b, c, in set
+    assert left-distributivity
+      head type, have type
+      have a
+      have b
+      have c
+      have add
+      have mul
+
+property set-irreflexivity
+  head type
+
+  take set, like set, have type
+  take relation, like binary-relation, have type
+
+  all a, in set
+    assert irreflexivity
+      head type, have type
+      have a
+      have relation
+
+property set-closure
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, in set
+    assert closure
+      head type, have type
+      have a
+      have b
+      have operation
+      have set
+
+property set-jordan-identity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-function, have type
+
+  all a, b, in set
+    assert jordan-identity
+      head type, have type
+      have a
+      have b
+      have operation
+
+property set-associativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-operation, have type
+
+  assert set-left-associativity
+    head type, have type
+    have set
+    have operation
+  assert set-right-associativity
+    head type, have type
+    have set
+    have operation
+
+property set-left-associativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-operation, have type
+
+  all a, b, c, in set
+    assert left-associativity
+      head type, have type
+      have a
+      have b
+      have c
+      have operation
+
+property set-right-associativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-operation, have type
+
+  all a, b, c, in set
+    assert right-associativity
+      head type, have type
+      have a
+      have b
+      have c
+      have operation

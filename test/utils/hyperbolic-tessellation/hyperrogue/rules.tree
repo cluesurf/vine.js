@@ -1,0 +1,140 @@
+# https://github.com/stla/gyro/tree/main
+
+case power-associativity
+  bind jordan-algebra
+  bind flexible-algebra
+  bind moufang-Loop
+
+miss associativity
+  bind jordan-algebra
+  bind flexible-algebra
+  bind moufang-Loop
+
+rule associativity
+  need equal
+    call operation
+      have a
+      call operation
+        have b
+        have c
+    call operation
+      call operation
+        have a
+        have b
+      have c
+
+property group-left-inverse-element
+  take set, like set
+  take operation, like binary-operation
+
+  all a, in set
+    find b, in set
+      where equal
+        do flip, item b
+        item a
+    where equal
+      do operation
+        item a
+        item b
+      value 0
+
+property associativity
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take operation, like binary-operation, have type
+
+  assert equal
+    do operation
+      item a
+      do operation
+        item b
+        item c
+    do operation
+      do operation
+        item a
+        item b
+      item c
+
+property set-associativity
+  head type
+
+  take set, like set, have type
+  take operation, like binary-operation, have type
+
+  all a, b, c, in set
+    property associativity
+      head type, have type
+      have a
+      have b
+      have c
+      have operation
+
+property set-distributivity
+  take set, like set
+  take operation-a, like binary-operation
+  take operation-b, like binary-operation
+
+  all a, b, c, in set
+    where equal
+      do operation-b
+        item a
+        do operation-a
+          item b
+          item c
+      do operation-a
+        do operation-b
+          item a
+          item b
+        do operation-a
+          item a
+          item c
+
+form gyrogroup
+  link operation, like binary-operation
+  link set, like set
+
+  require set-left-inverse-element
+    bind set, have set
+    bind operation, have operation
+
+  require left-identity-element
+    need exist
+      call find, have self/set
+        hook test
+          take a
+          test equal
+            call add
+              have 0
+              have a
+            have a
+
+  rule left-inverse-element
+    walk self/set
+      hook case
+        take a
+        save inverse
+          call find, have self/set
+            hook test
+              take b
+              test equal
+                call flip, have a
+                have b
+        need exist, have inverse
+        need equal
+          call add
+            have inverse
+            have a
+          have 0
+
+
+For each a in G there is an element
+⊖{\displaystyle \ominus }a in G called a left inverse of a with (
+⊖{\displaystyle \ominus }a)
+⊕{\displaystyle \oplus } a = 0.
+
+
+In G there is at least one element 0 called a left identity with 0
+⊕{\displaystyle \oplus } a = a for all a in G.

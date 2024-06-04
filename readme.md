@@ -15,6 +15,22 @@
 <br/>
 <br/>
 
+## Articles
+
+- FormView (graphics)
+- TalkText (description)
+  - English
+  - Tune/Tone
+- TreeCode
+- FormText (math symbols)
+
+```
+/view
+/talk
+/tree/foo
+/form/foo
+```
+
 ## Goals
 
 - particles: triangle
@@ -98,6 +114,10 @@ pnpm add @termsurf/vine
 yarn add @termsurf/vine
 npm i @termsurf/vine
 ```
+
+## Inspiration
+
+- https://github.com/zenorogue/hyperrogue
 
 ## License
 

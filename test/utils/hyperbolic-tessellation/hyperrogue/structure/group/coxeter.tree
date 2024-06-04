@@ -1,0 +1,52 @@
+
+structure coxeter-group
+  head type
+
+  link generators, like set, have type
+  link relations, like relation-collection, have type
+
+  # Generators should be involutions
+  assert involutions
+    head type, have type
+    have generators
+    have relations
+
+  # Relations should follow the Coxeter relations
+  assert coxeter-relations
+    head type, have type
+    have generators
+    have relations
+
+property involutions
+  head type
+
+  take generators, like set, have type
+  take relations, like relation-collection, have type
+
+  all s, in generators
+    assert equal
+      do apply-relation
+        item s
+        item s
+      item identity
+
+property coxeter-relations
+  head type
+
+  take generators, like set, have type
+  take relations, like relation-collection, have type
+
+  all s, t, in generators
+    if not equal
+      item s
+      item t
+    then exist m, in positive-integer
+      assert equal
+        do apply-relation
+          item s
+          item t
+          repeat m
+        item apply-relation
+          item t
+          item s
+          repeat m

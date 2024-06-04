@@ -1,0 +1,16 @@
+
+load ~/code/structure/group
+  find group
+
+load ~/code/property/group
+  find group-commutativity
+
+structure abelian-group
+  head type
+
+  link group, like group, have type
+
+  # Commutativity of the group operation
+  assume group-commutativity
+    head type, have type
+    have group

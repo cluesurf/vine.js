@@ -26,11 +26,13 @@ const config: Config = {
       fontSize: {
         md2: '20px',
         md: '24px',
+        32: '32px',
       },
       zIndex: {
         '20': '20',
       },
       spacing: {
+        2: '2px',
         4: '4px',
         8: '8px',
         12: '12px',

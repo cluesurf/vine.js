@@ -1,0 +1,26 @@
+.node {
+  top: 0px;
+  bottom: 0px;
+  width: 4px;
+  display: none;
+  position: absolute;
+  background: theme('colors.gray.200');
+}
+
+.highlightDepth1 .node.depth1,
+.highlightDepth2 .node.depth2,
+.highlightDepth3 .node.depth3,
+.highlightDepth4 .node.depth4,
+.highlightDepth5 .node.depth5,
+.highlightDepth6 .node.depth6,
+.highlightDepth7 .node.depth7,
+.highlightDepth8 .node.depth8,
+.highlightDepth9 .node.depth9,
+.highlightDepthA .node.depthA,
+.highlightDepthB .node.depthB,
+.highlightDepthC .node.depthC,
+.highlightDepthD .node.depthD,
+.highlightDepthE .node.depthE,
+.highlightDepthF .node.depthF {
+  display: block;
+}

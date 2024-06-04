@@ -1,0 +1,35 @@
+
+structure group
+  head type
+
+  link set, like set, have type
+  link operation, like binary-operation, have type
+  link identity, like type
+  link inverse, like unary-operation, have type
+
+  # Closure under the group operation
+  assume set-closure
+    head type, have type
+    have set
+    have operation
+
+  # Associativity of the group operation
+  assume set-associativity
+    head type, have type
+    have set
+    have operation
+
+  # Existence of the identity element
+  assume set-identity-element
+    head type, have type
+    have set
+    have operation
+    have identity
+
+  # Existence of inverses
+  assume set-inverse-element
+    head type, have type
+    have set
+    have operation
+    have identity
+    have inverse

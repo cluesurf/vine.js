@@ -1,0 +1,376 @@
+property left-alternativity
+  head type
+
+  take a, like type
+  take b, like type
+  take operation, like binary-operation, have type
+
+  assert equality
+    do operation
+      item a
+      do operation
+        item a
+        item b
+    do operation
+      do operation
+        item a
+        item a
+      item b
+
+property right-alternativity
+  head type
+
+  take a, like type
+  take b, like type
+  take operation, like binary-operation, have type
+
+  assert equality
+    do operation
+      do operation
+        item a
+        item b
+      item b
+    do operation
+      item a
+      do operation
+        item b
+        item b
+
+property flexibility
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take operation, like binary-operation, have type
+
+  assert equality
+    do operation
+      do operation
+        item a
+        item b
+      item c
+    do operation
+      do operation
+        item a
+        item c
+      item b
+
+property anticommutativity
+  head type
+
+  take a, like type
+  take b, like type
+  take operation, like binary-operation, have type
+
+  assert equality
+    do operation
+      item a
+      item b
+    do flip
+      do operation
+        item b
+        item a
+
+property symmetry
+  head type
+
+  take a, like type
+  take b, like type
+  take operation, like binary-operation, have type
+
+  assert equality
+    do operation
+      item a
+      item b
+    do operation
+      item b
+      item a
+
+property idempotent-element
+  head type
+
+  take a, like type
+  take operation, like binary-operation, have type
+
+  assert equality
+    do operation
+      item a
+      item a
+    item a
+
+property right-distributivity
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take add, like binary-operation, have type
+  take mul, like binary-operation, have type
+
+  assert equality
+    do mul
+      do add
+        item a
+        item b
+      item c
+    do add
+      do mul
+        item a
+        item c
+      do mul
+        item b
+        item c
+
+property left-distributivity
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take add, like binary-operation, have type
+  take mul, like binary-operation, have type
+
+  assert equality
+    do mul
+      item a
+      do add
+        item b
+        item c
+    do add
+      do mul
+        item a
+        item b
+      do mul
+        item a
+        item c
+
+property irreflexivity
+  head type
+
+  take a, like type
+  take relation, like binary-relation, have type
+
+  assert not
+    do relation
+      item a
+      item a
+
+property closure
+  head type
+
+  take a, like type
+  take b, like type
+  take operation, like binary-operation, have type
+  take set, like set
+
+  assert in, item set
+    do operation
+      item a
+      item b
+
+property jordan-identity
+  head type
+
+  take a, like type
+  take b, like type
+  take operation, like binary-operation, have type
+
+  assert equal
+    do operation
+      do operation
+        item a
+        item b
+      do operation
+        item a
+        item a
+    do operation
+      item a
+      do operation
+        item b
+        do operation
+          item a
+          item a
+
+property left-associativity
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take operation, like binary-operation, have type
+
+  assert equal
+    do operation
+      item a
+      do operation
+        item b
+        item c
+    do operation
+      do operation
+        item a
+        item b
+      item c
+
+# https://en.wikipedia.org/wiki/Algebra_over_a_field
+# Commutativity
+# inverse-element
+# power-associativity
+# moufang loops
+# Quasigroups
+# loops
+# lie algebra
+# Jacobi identity
+# jordan algebra
+# Nilpotent-element
+# Homomorphism
+# Automorphism
+# Isomorphism
+# Endomorphism
+# Antisymmetry
+# Transitivity
+# Reflexivity
+# Total Order
+# Partial Order
+# Completeness
+# Trichotomy
+# Conjugation
+# Monotonicity
+# Archimedean Property
+# Compactness
+# Connectedness
+# Discreteness
+# Local Compactness
+# Normality
+# Separatedness
+# Isotropy
+# Modular Property (Lattices)
+# Transposition
+# Involution
+# Well-Ordering
+# Order-Preserving
+# Contractibility
+# Homogeneity
+# Bilinearity
+# Orthogonality
+# Eigenvalue Property
+# Eigenvector Property
+# Skew-Symmetry
+# Positive-Definiteness
+# Normativity
+# Hausdorff Property
+# Metric Property
+# Subgroup Property
+# Cyclic Property:
+# Ring Property
+# Field Property
+# https://en.wikipedia.org/wiki/Normal_subgroup
+
+property right-associativity
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take operation, like binary-operation, have type
+
+  assert equal
+    do operation
+      do operation
+        item a
+        item b
+      item c
+    do operation
+      item a
+      do operation
+        item b
+        item c
+
+property associativity
+  head type
+
+  take a, like type
+  take b, like type
+  take c, like type
+  take operation, like binary-operation, have type
+
+  assert left-associativity
+    head type, have type
+    have a
+    have b
+    have c
+    have operation
+  assert right-associativity
+    head type, have type
+    have a
+    have b
+    have c
+    have operation
+
+property local-euclidean
+  head type
+
+  take set, like set, have type
+  take charts, like chart-collection, have type
+
+  all point, in set
+    exist chart, in charts
+      assert chart-domain-contains
+        item chart
+        item point
+      assert euclidean-space
+        item chart
+
+property chart-compatibility
+  head type
+
+  take charts, like chart-collection, have type
+
+  all chart1, chart2, in charts
+    exist transition-map
+      assert smooth-map
+        item transition-map
+      assert transition-defined
+        item chart1
+        item chart2
+        item transition-map
+
+property linearity-first-argument
+  head type
+
+  take vector-space, like vector-space, have type
+  take inner-product, like binary-function, have type
+
+  all u, v, w, in vector-space/set
+    take a, in vector-space/field
+
+    assert equal
+      do inner-product
+        item u
+        do vector-space/operation
+          item a
+          item v
+      do vector-space/field/add
+        do vector-space/field/multiply
+          item a
+          do inner-product
+            item u
+            item v
+        do inner-product
+          item u
+          item w
+
+# property symmetry
+#   head type
+
+#   take vector-space, like vector-space, have type
+#   take inner-product, like binary-function, have type
+
+#   all u, v, in vector-space.set
+#     assert equal
+#       do inner-product
+#         item u
+#         item v
+#       do inner-product
+#         item v
+#         item u

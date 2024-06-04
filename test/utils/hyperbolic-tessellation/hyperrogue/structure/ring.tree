@@ -1,0 +1,72 @@
+
+load ~/code/structure/set
+  find set
+
+load ~/code/property/set
+  find set-closure
+  find set-associativity
+  find set-identity-element
+  find set-inverse-element
+
+load ~/code/structure/function/unary
+  find unary-function
+
+load ~/code/structure/function/binary
+  find binary-function
+
+structure ring
+  head type
+
+  link set, like set, have type
+
+  link addition, like binary-function, have type
+  link multiplication, like binary-function, have type
+
+  link additive-identity, like type
+  link multiplicative-identity, like type
+
+  link additive-inverse, like unary-function, have type
+
+  # Closure under addition and multiplication
+  assume set-closure
+    head type, have type
+    have set
+    have addition
+
+  assume set-closure
+    head type, have type
+    have set
+    have multiplication
+
+  # Associativity of addition and multiplication
+  assume set-associativity
+    head type, have type
+    have set
+    have addition
+
+  assume set-associativity
+    head type, have type
+    have set
+    have multiplication
+
+  # Existence of the additive identity
+  assume set-identity-element
+    head type, have type
+    have set
+    have addition
+    have additive-identity
+
+  # Existence of additive inverses
+  assume set-inverse-element
+    head type, have type
+    have set
+    have addition
+    have additive-identity
+    have additive-inverse
+
+  # Distributivity of multiplication over addition
+  assume set-distributivity
+    head type, have type
+    have set
+    have addition
+    have multiplication

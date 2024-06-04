@@ -1,0 +1,12 @@
+
+structure lie-group
+  head type
+
+  link group, like group, have type
+  link manifold, like manifold, have type
+
+  # Compatibility between group and manifold structures
+  assert smooth-structure
+    head type, have type
+    have group
+    have manifold

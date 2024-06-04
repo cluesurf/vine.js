@@ -1,0 +1,18 @@
+
+structure weyl-group
+  head type
+
+  link coxeter-group, like coxeter-group, have type
+  link root-system, like set, have type
+  link reflections, like set, have type
+
+  # Reflections should be derived from the root system
+  assert reflections-from-root-system
+    head type, have type
+    have root-system
+    have reflections
+
+  # Relations should follow the Weyl relations
+  assert weyl-relations
+    head type, have type
+    have reflections

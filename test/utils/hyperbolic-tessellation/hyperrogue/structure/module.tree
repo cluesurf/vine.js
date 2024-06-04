@@ -1,0 +1,47 @@
+structure module
+  head type
+
+  link ring, like ring, have type
+  link group, like abelian-group, have type
+  link scalar-multiplication, like binary-function, have type
+
+  # Closure under scalar multiplication
+  assert set-closure
+    head type, have type
+    have group/set
+    have scalar-multiplication
+
+  # Associativity of scalar multiplication
+  assert scalar-multiplication-associativity
+    head type, have type
+    have ring
+    have group
+    have scalar-multiplication
+
+  # Left distributivity of scalar multiplication over ring addition
+  assert left-distributivity
+    head type, have type
+    have ring
+    have group
+    have scalar-multiplication
+
+  # Right distributivity of scalar multiplication over abelian group addition
+  assert right-distributivity
+    head type, have type
+    have ring
+    have group
+    have scalar-multiplication
+
+  # Compatibility of scalar multiplication with ring multiplication
+  assert scalar-multiplication-compatibility
+    head type, have type
+    have ring
+    have group
+    have scalar-multiplication
+
+  # Scalar multiplication by the ring's multiplicative identity
+  assert scalar-multiplication-identity
+    head type, have type
+    have ring
+    have group
+    have scalar-multiplication

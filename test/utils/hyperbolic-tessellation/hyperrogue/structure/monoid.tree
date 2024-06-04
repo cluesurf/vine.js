@@ -1,0 +1,20 @@
+
+structure monoid
+  head type
+
+  link set, like set, have type
+  link operation, like binary-operation, have type
+  link identity, like type
+
+  # Associativity of the operation
+  assert set-associativity
+    head type, have type
+    have set
+    have operation
+
+  # Existence of the identity element
+  assert set-identity-element
+    head type, have type
+    have set
+    have operation
+    have identity

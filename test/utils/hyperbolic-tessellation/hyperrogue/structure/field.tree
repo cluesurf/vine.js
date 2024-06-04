@@ -1,0 +1,96 @@
+
+structure field
+  head type
+
+  link set, like set, have type
+
+  link addition, like binary-operation, have type
+  link multiplication, like binary-operation, have type
+  link subtraction, like binary-operation, have type
+  link division, like binary-operation, have type
+
+  link additive-identity, like type
+  link multiplicative-identity, like type
+
+  link additive-inverse, like unary-operation, have type
+  link multiplicative-inverse, like unary-operation, have type
+
+  # Closure under addition, multiplication, subtraction, and division
+  assert set-closure
+    head type, have type
+    have set
+    have addition
+
+  assert set-closure
+    head type, have type
+    have set
+    have multiplication
+
+  assert set-closure
+    head type, have type
+    have set
+    have subtraction
+
+  assert set-closure
+    head type, have type
+    have set
+    have division
+
+  # Associativity of addition and multiplication
+  assert set-associativity
+    head type, have type
+    have set
+    have addition
+
+  assert set-associativity
+    head type, have type
+    have set
+    have multiplication
+
+  # Commutativity of addition and multiplication
+  assert set-commutativity
+    head type, have type
+    have set
+    have addition
+
+  assert set-commutativity
+    head type, have type
+    have set
+    have multiplication
+
+  # Existence of the additive identity
+  assert set-identity-element
+    head type, have type
+    have set
+    have addition
+    have additive-identity
+
+  # Existence of the multiplicative identity
+  assert set-identity-element
+    head type, have type
+    have set
+    have multiplication
+    have multiplicative-identity
+
+  # Existence of additive inverses
+  assert set-inverse-element
+    head type, have type
+    have set
+    have addition
+    have additive-identity
+    have additive-inverse
+
+  # Existence of multiplicative inverses for non-zero elements
+  assert set-inverse-element
+    head type, have type
+    have set
+    have multiplication
+    have multiplicative-identity
+    have multiplicative-inverse
+
+  # Distributivity of multiplication over addition
+  assert set-distributivity
+    head type, have type
+    have set
+    have addition
+    have multiplication

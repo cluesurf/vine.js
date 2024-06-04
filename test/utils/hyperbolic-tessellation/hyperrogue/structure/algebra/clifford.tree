@@ -1,0 +1,72 @@
+
+structure clifford-algebra
+  head type
+
+  link vector-space, like vector-space, have type
+  link quadratic-form, like function, have type
+  link product, like binary-operation, have type
+
+  # Bilinear property
+  assert bilinear
+    head type, have type
+    have vector-space
+    have product
+
+  # Clifford relation
+  assert clifford-relation
+    head type, have type
+    have vector-space
+    have quadratic-form
+    have product
+
+property bilinear
+  head type
+
+  take vector-space, like vector-space, have type
+  take product, like binary-operation, have type
+
+  all u, v, w, in vector-space.set
+    assert equal
+      do product
+        item u
+        do vector-space.operation
+          item v
+          item w
+      do vector-space.operation
+        do product
+          item u
+          item v
+        do product
+          item u
+          item w
+
+    assert equal
+      do product
+        do vector-space.operation
+          item u
+          item v
+        item w
+      do vector-space.operation
+        do product
+          item u
+          item w
+        do product
+          item v
+          item w
+
+property clifford-relation
+  head type
+
+  take vector-space, like vector-space, have type
+  take quadratic-form, like function, have type
+  take product, like binary-operation, have type
+
+  all v, in vector-space.set
+    assert equal
+      do product
+        item v
+        item v
+      do vector-space.scalar-multiply
+        item quadratic-form
+          item v
+        item vector-space.identity
